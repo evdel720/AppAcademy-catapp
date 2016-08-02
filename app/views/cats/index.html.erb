@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>all cats</title>
+  </head>
+  <body>
+    <h1>All Cats</h1>
+    <ul>
+    <% @cats.each do |cat| %>
+      <li><a href=<%=cat_url(cat)%>> <%= cat.name %></a></li>
+    <% end %>
+    </ul>
+    <%= button_to "New Cat", new_cat_url, method: :get %>
+  </body>
+</html>

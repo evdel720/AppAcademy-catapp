@@ -28,6 +28,27 @@
         <td><%= @cat.description %></td>
       </tr>
     </table>
+
+    <h3>Existing Rental Requests</h3>
+    <table>
+      <tr>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Status</th>
+      </tr>
+      <% @rentals.each do |rental| %>
+        <tr>
+          <td><%= rental.start_date %></td>
+          <td><%= rental.end_date %></td>
+          <td><%= rental.status %></td>
+          <% if rental.pending? %>
+          <td><%= button_to 'APPROVE', approve_cat_rental_request_url(rental), method: :post%></td>
+          <td><%= button_to 'DENY', deny_cat_rental_request_url(rental), method: :post%></td>
+          <% end %>
+        </tr>
+      <% end %>
+    </table>
+
     <%= button_to 'Edit the cat', edit_cat_url(@cat), method: :get %>
   </body>
 </html>

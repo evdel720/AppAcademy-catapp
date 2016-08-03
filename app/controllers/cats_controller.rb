@@ -5,6 +5,7 @@ class CatsController < ApplicationController
 
   def show
     @cat = Cat.find_by_id(params[:id])
+    @rentals = CatRentalRequest.where(cat_id: params[:id]).order(:start_date)
   end
 
   def new

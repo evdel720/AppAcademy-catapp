@@ -4,7 +4,7 @@ class CreateCatRentalRequests < ActiveRecord::Migration
       t.integer :cat_id, null: false
       t.date :start_date, null: false
       t.date :end_date, null: false
-      t.string :status, default: "PENDING"
+      t.string :status, default: "PENDING", null: false
       t.timestamps null: false
     end
     add_index :cat_rental_requests, :cat_id

@@ -19,6 +19,7 @@ class Cat < ActiveRecord::Base
   validates_length_of :sex, is: 1
   validates_inclusion_of :color, in: COLORS
   validates_inclusion_of :sex, in: ['M','F']
+  has_many :cat_rental_requests, dependent: :destroy
 
   def age
     today = Date.today
